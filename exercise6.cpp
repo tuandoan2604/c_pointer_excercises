@@ -6,7 +6,8 @@ void my_swap(int arr[], int index1, int indexM){
     arr[index1] = arr[indexM];
     arr[indexM] = mid;
 }
-
+/*  phân tích max(0, a[i] - a[i-1]), ta thấy để giá trị cách nhiệt lớn nhất
+ thì giá trị lớn nhất xếp cuối và giá trị bé nhất xếp đầu  */
 int main(int argc, char **argv){
     int N;
     cout<<"Nhap so luong so can nhap N = ";

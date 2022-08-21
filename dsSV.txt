@@ -1,0 +1,24 @@
+----------------------------------------------------------------
+Ten: An
+Diem Toan: 8
+Diem Ly: 9
+Diem Hoa: 7
+Diem TB: 8
+Tuoi sv: 50
+Gioi tinh: Nam
+----------------------------------------------------------------
+Ten: Duong
+Diem Toan: 10
+Diem Ly: 5
+Diem Hoa: 9
+Diem TB: 8
+Tuoi sv: 19
+Gioi tinh: Nu
+----------------------------------------------------------------
+Ten: Quang
+Diem Toan: 9
+Diem Ly: 10
+Diem Hoa: 10
+Diem TB: 9.66667
+Tuoi sv: 31
+Gioi tinh: Nam

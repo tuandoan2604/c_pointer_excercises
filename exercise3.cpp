@@ -85,7 +85,7 @@ int main(int argc, char** argv)
         cout<<"Nhap sinh vien thu "<<i+1<<":"<<endl;
         cout<<"Ten: ";cin>>(Lop1+i)->HoTen;cout<<endl;
         cout<<"Tuoi: ";cin>>(Lop1+i)->age;cout<<endl;
-        cout<<"Gioi tinh: ";cin>>(*(Lop1+i)).Nam;cout<<endl;
+        cout<<"Gioi tinh(1.Name      0.Nu): ";cin>>(*(Lop1+i)).Nam;cout<<endl;
         cout<<"Diem toan: ";cin>>Lop1[i].Toan;cout<<endl;
         cout<<"Diem ly: ";cin>>Lop1[i].Ly;cout<<endl;
         cout<<"Diem hoa: ";cin>>Lop1[i].Hoa;cout<<endl;
@@ -114,6 +114,7 @@ int main(int argc, char** argv)
                 dsSV<<"Gioi tinh: Nu"<<endl;
             }
         }
+        dsSV.close();
     }
     
     delete []Lop1;

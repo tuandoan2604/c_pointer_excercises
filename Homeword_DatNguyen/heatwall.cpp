@@ -5,7 +5,7 @@
 #define MAX 1000
 using namespace std;
 
-int main(){   
+int main() {   
     long n, a[MAX];
     long res = 0;
     
@@ -28,5 +28,6 @@ int main(){
         res += tmp2 - tmp;
     }
     cout << "The max heat wall " << res << endl;
+    
     return 0;
 }

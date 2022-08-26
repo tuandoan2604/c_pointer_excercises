@@ -1,0 +1,8 @@
+information of student 1 :
+name: voung
+sex: kdfs
+age: 5
+math: 5
+physic: 5.3
+chemistry: 5.1
+

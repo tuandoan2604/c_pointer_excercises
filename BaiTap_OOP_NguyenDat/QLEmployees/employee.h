@@ -6,7 +6,7 @@
 
 class Employee {
  protected:
-    int m_count = 0;
+    static int m_count;
     string m_id;
     string m_fullName;
     Date m_birthday;
@@ -26,7 +26,21 @@ class Employee {
         dscertificate = certificates;
     }
 
-    virtual void showInformation() = 0;
+    void setEmployeedCount() {
+        m_count = 0;
+    }
+
+    static void increaseEmployeeCount() {
+        m_count++;
+    }
+
+    static void decreaseEmployeeCount() {
+        m_count--;
+    }
+
+    static int getEmployeeCount() {
+        return m_count;
+    }
 
     int getCount() {
         return m_count;
@@ -88,6 +102,7 @@ class Employee {
         dscertificate.push_back(cetificate);
     }
 
+    virtual void showInformation() = 0;
     virtual string toString() = 0;
 
     virtual ~Employee(){}

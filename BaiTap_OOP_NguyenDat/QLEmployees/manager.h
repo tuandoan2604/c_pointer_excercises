@@ -4,13 +4,8 @@
 #include "experience.h"
 #include "fresher.h"
 #include "intern.h"
+#include "myexception.h"
 #include "memory"
-
-const int MAX_VALID_YR = 9999;
-const int MIN_VALID_YR = 1800;
-
-bool isLeap(int year);
-bool isValidDate(int d, int m, int y);
 
 class Manager {
  private:
@@ -33,17 +28,35 @@ class Manager {
         cin.ignore();
         cout << "Nhap ID nhan vien: "; fflush(stdin); getline(cin, id);
         cout << "Nhap fullname nhan vien: "; fflush(stdin); getline(cin, fullName);
-        cout << "Nhap phone nhan vien: "; fflush(stdin); getline(cin, phone);
-        cout << "Nhap email nhan vien: "; fflush(stdin); getline(cin, email);
-        cout << "Birthday nhan vien (day/month/year): ";
-        do{
-            cin >> birthday.day; cin >> birthday.month; cin >> birthday.year;
-            if(isValidDate(birthday.day, birthday.month, birthday.year) == false){
-                cout << "Enter birday again (day/month/year): ";
+        
+        bool check_number = true;
+        do {
+            try {
+                cout << "Nhap phone nhan vien: "; fflush(stdin); getline(cin, phone);
+                checkPhone(phone);
+                check_number = true;
+            } catch (const char *error) {
+                cerr << error << endl;
+                check_number = false;
             }
-        } while(isValidDate(birthday.day, birthday.month, birthday.year) == false);
-        cout << "_______Nhap cetificate nhan vien_____\n";
+        } while (check_number == false);
 
+        cout << "Nhap email nhan vien: "; fflush(stdin); getline(cin, email);
+
+        bool check_date = true;
+        do {
+            try {
+                cout << "Birthday nhan vien (day/month/year): ";
+                cin >> birthday.day; cin >> birthday.month; cin >> birthday.year;
+                checkDate(birthday);
+                check_date = true;
+            } catch (const char *error) {
+                cerr << error << endl;
+                check_date = false;
+            }
+        } while (check_date == false);
+
+        cout << "_______Nhap cetificate nhan vien_____\n";
 
         Certificate bangcap;
         string namecertifi, rankcertifi;
@@ -138,34 +151,5 @@ class Manager {
     ~Manager() {}
 
 };
-
-
-bool isLeap(int year) {
-return (((year % 4 == 0) &&
-         (year % 100 != 0)) ||
-         (year % 400 == 0));
-}
-
-bool isValidDate(int d, int m, int y) {
-    if (y > MAX_VALID_YR ||
-        y < MIN_VALID_YR)
-    return false;
-    if (m < 1 || m > 12)
-    return false;
-    if (d < 1 || d > 31)
-    return false;
- 
-    if (m == 2) {
-        if (isLeap(y))
-        return (d <= 29);
-        else
-        return (d <= 28);
-    }
- 
-    if (m == 4 || m == 6 ||
-        m == 9 || m == 11)
-        return (d <= 30);
-    return true;
-}
 
 #endif
